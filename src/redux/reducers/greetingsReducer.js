@@ -11,7 +11,7 @@ const displayGreeting = (payload) => ({
 
 // get (load) greetings from API
 export const fetchGreetingAPI = () => async (dispatch) => {
-  const response = await Axios.get('http://localhost:3000/v1/greetings');
+  const response = await Axios.get('http://localhost:3000/api/v1/greetings');
   const greeting = await response.data;
   dispatch(displayGreeting(greeting));
 };
