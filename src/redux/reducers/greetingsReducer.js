@@ -1,4 +1,4 @@
-import Axios from 'axios';
+import axios from 'axios';
 
 // constant
 const DISPLAY_GREETING = 'DISPLAY_GREETING';
@@ -11,8 +11,8 @@ const displayGreeting = (payload) => ({
 
 // get (load) greetings from API
 export const fetchGreetingAPI = () => async (dispatch) => {
-  const response = await Axios.get('http://localhost:3000/api/v1/greetings');
-  const greeting = await response.data;
+  const response = await axios.get('http://localhost:3000/api/v1/greeting');
+  const greeting = response.data;
   dispatch(displayGreeting(greeting));
 };
 
@@ -23,7 +23,7 @@ const initialState = [];
 const greetingReducer = (state = initialState, action) => {
   switch (action.type) {
     case DISPLAY_GREETING:
-      return action.payload;
+      return action.payload.message;
     default:
       return state;
   }
