@@ -1,19 +1,30 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchGreeting } from '../redux/reducers/greetingsReducer';
+import { fetchGreetingAPI } from '../redux/reducers/greetingsReducer';
 
 const Greeting = () => {
   const dispatch = useDispatch();
   const message = useSelector((state) => state.messages);
 
   useEffect(() => {
-    dispatch(fetchGreeting());
-  }, []);
+    dispatch(fetchGreetingAPI());
+  }, [dispatch]);
+
+  const handleClick = () => {
+    dispatch(fetchGreetingAPI());
+  };
 
   return (
-    <div>
+    <>
+      {/* {greetings.map((msg) => (
+        <h1>{msg.message}</h1>
+      ))} */}
       <h1>{message}</h1>
-    </div>
+
+      <button type="button" onClick={handleClick}>
+        Refresh
+      </button>
+    </>
   );
 };
 

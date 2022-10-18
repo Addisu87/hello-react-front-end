@@ -1,7 +1,4 @@
-const initialState = {
-  messages: [],
-};
-
+// constant
 const DISPLAY_GREETING = 'DISPLAY_GREETING';
 
 // Action creator for display greeting
@@ -9,6 +6,11 @@ const displayGreeting = (payload) => ({
   type: DISPLAY_GREETING,
   payload,
 });
+
+// initial states
+const initialState = {
+  messages: [],
+};
 
 // Reducer for greeting
 const greetingReducer = (state = initialState, action) => {
@@ -21,14 +23,10 @@ const greetingReducer = (state = initialState, action) => {
 };
 
 // get (load) greetings from API
-export const fetchGreeting = () => async (dispatch) => {
-  try {
-    const response = await fetch('/api/v1/greetings');
-    const data = await response.json();
-    dispatch(displayGreeting(data));
-  } catch (err) {
-    throw new Error(err);
-  }
+export const fetchGreetingAPI = () => async (dispatch) => {
+  const response = await fetch('http://localhost:3000/v1/greetings');
+  const greeting = await response.json();
+  dispatch(displayGreeting(greeting));
 };
 
 export default greetingReducer;
