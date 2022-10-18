@@ -1,6 +1,6 @@
 # Hello-react-front-end
 
-> This application is developed using RoR CRUD capabilities. It allows users to create messages and post them in a web interface.
+> This application is developed using React and Redux.
 
 ## Built With
 
