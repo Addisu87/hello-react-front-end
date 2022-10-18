@@ -16,11 +16,7 @@ const Greeting = () => {
 
   return (
     <>
-      {/* {greetings.map((msg) => (
-        <h1>{msg.message}</h1>
-      ))} */}
       <h1>{message}</h1>
-
       <button type="button" onClick={handleClick}>
         Refresh
       </button>
