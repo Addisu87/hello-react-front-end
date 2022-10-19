@@ -6,7 +6,7 @@ const DISPLAY_GREETING = 'DISPLAY_GREETING';
 // Action creator for display greeting
 const displayGreeting = (payload) => ({
   type: DISPLAY_GREETING,
-  payload
+  payload,
 });
 
 // get (load) greetings from API
